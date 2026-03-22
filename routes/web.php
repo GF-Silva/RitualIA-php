@@ -7,12 +7,10 @@ use Illuminate\Http\Request;
 function get_music_collections($name) {
     $CLIENT_ID = "fZZystuNmRezJL7O34gUK46UP1FV47Fc";
 
-    $nome = $name;
-
     $url = 'https://api-v2.soundcloud.com/search/tracks';
     
     $body = [
-        'q' => $nome,
+        'q' => $name,
         'client_id' => $CLIENT_ID,
         'limit' => 5
     ];

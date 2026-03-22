@@ -27,7 +27,7 @@
         if ( response.ok ) {
             url = dados["url"];
         
-            document.getElementById("player").src = `https://w.soundcloud.com/player/?url=${url}`;
+            document.getElementById("player").src = `https://w.soundcloud.com/player/?url=${url}&auto_play=true`;
 
         } else {
             console.log("nao encontrado")
@@ -37,9 +37,12 @@
 
   </script>
 
-  <iframe id="player"
-    width="100%" height="166"
-    frameborder="0" allow="autoplay">
+  <iframe id="player" style="pointer-events: none;"
+    width="100%"
+    height="166"
+    scrolling="no" 
+    frameborder="no"
+    allow="autoplay">
   </iframe>
 
 </body>
