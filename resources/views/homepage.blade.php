@@ -6,7 +6,15 @@
 </head>
 <body>
 
-  <input type="text" id="musicInput" onchange="getMusicLink()"/>
+  <input type="text" id="musicInput" onkeydown="if(event.key === 'Enter') getMusicLink()"/>
+
+  <iframe id="player" style="pointer-events: none;"
+    width="100%"
+    height="166"
+    scrolling="no" 
+    frameborder="no"
+    allow="autoplay; encrypted-media">
+  </iframe>
 
   <script>
 
@@ -36,14 +44,6 @@
     }
 
   </script>
-
-  <iframe id="player" style="pointer-events: none;"
-    width="100%"
-    height="166"
-    scrolling="no" 
-    frameborder="no"
-    allow="autoplay">
-  </iframe>
 
 </body>
 </html>

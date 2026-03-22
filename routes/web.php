@@ -18,7 +18,7 @@ function get_music_collections($name) {
     $response = Http::get($url, $body);
     $data = json_decode( $response->getBody(), true );
 
-    $data_collection = $data["collection"];
+    $data_collection = $data["collection"] ?? [];
 
     if (!$data_collection) {
         return [];
@@ -40,11 +40,12 @@ Route::post('/get-music-url', function(Request $request) {
         return json_encode([], 404);
     }
 
+    // TODO: Contar quanto tempo a musica e definir um minimo de tempo reproduzindo para ganhar PONTOS
     $url = $collections[0]['permalink_url'];
 
-    $resp = json_encode([
+    $resp = [
         'url'=> $url
-    ], 200);
+    ];
 
-    return $resp;
+    return response() -> json($resp, 200);
 });
